@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{998D1612-BA15-4DB5-ACA9-896CE719EC3E}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\docker-image.yml = .github\workflows\docker-image.yml
+		ingress-controller.yaml = ingress-controller.yaml
 		NuGet.config = NuGet.config
 		README.md = README.md
 	EndProjectSection
