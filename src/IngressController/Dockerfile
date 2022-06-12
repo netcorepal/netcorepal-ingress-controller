@@ -7,10 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/NetCorePal.IngressController/NetCorePal.IngressController.csproj", "src/NetCorePal.IngressController/"]
-RUN dotnet restore "src/NetCorePal.IngressController/NetCorePal.IngressController.csproj"
+COPY ["NuGet.config", "."]
+COPY ["src/IngressController/NetCorePal.IngressController.csproj", "src/IngressController/"]
+RUN dotnet restore "src/IngressController/NetCorePal.IngressController.csproj"
 COPY . .
-WORKDIR "/src/src/NetCorePal.IngressController"
+WORKDIR "/src/src/IngressController"
 RUN dotnet build "NetCorePal.IngressController.csproj" -c Release -o /app/build
 
 FROM build AS publish
