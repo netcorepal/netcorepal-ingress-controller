@@ -98,7 +98,7 @@ kind: IngressClass
 metadata:
   name: yarp
   annotations:
-    #ingressclass.kubernetes.io/is-default-class: "true"
+    ingressclass.kubernetes.io/is-default-class: "true"
 spec:
   controller: microsoft.com/ingress-yarp
 ---
