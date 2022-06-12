@@ -5,7 +5,14 @@
 ## 安装使用
 
 ```
-docker pull ghcr.io/netcorepal/apigateway:master
-docker run --name apigateway -p 7788:80 -e ASPNETCORE_ENVIRONMENT="Development"  -d ghcr.io/netcorepal/apigateway:master 
+# 创建命名空间
+kubectl create namespace yarp
+
+
+# 创建ingress controller
+kubectl apply -f .\ingress-controller.yaml -n yarp
+
+
+# 卸载
+kubectl delete -f .\ingress-controller.yaml -n yarp
 ```
-访问地址： [http://localhost:7788](http://localhost:7788)
