@@ -5,6 +5,13 @@
 ## 安装使用
 
 ```
+
+# 下载代码
+git clone https://github.com/netcorepal/netcorepal-ingress-controller.git
+
+cd netcorepal-ingress-controller
+
+
 # 创建命名空间
 kubectl create namespace yarp
 
