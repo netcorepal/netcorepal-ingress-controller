@@ -1,4 +1,4 @@
-# NetCorePal.ApiGateway
+# NetCorePal.IngressController
 
 基于`Yarp.ReverseProxy`打造的`Kubernetes Ingress Controller`。
 
