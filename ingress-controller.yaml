@@ -141,7 +141,7 @@ spec:
       containers:
       - name: yarp-controller
         imagePullPolicy: IfNotPresent
-        image: ghcr.io/netcorepal/netcorepal-ingress-controller:master
+        image: ghcr.io/netcorepal/netcorepal-ingress-controller:latest
         ports:
         - containerPort: 8000
           name: proxy
