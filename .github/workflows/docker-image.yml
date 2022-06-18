@@ -36,7 +36,9 @@ jobs:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         # List of tags as key-value pair attributes
         tags: |
+          type=ref,event=branch
           type=schedule,pattern={{date 'YYYYMMDDHHmmss'}}
+
     - name: Build and push Docker images
       # You may pin to the exact commit or the version.
       # uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
