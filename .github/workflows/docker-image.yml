@@ -39,6 +39,7 @@ jobs:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         # List of tags as key-value pair attributes
         tags: |
+          latest
           type=ref,event=branch
           type=ref,event=tag
           type=schedule,pattern={{date 'YYYYMMDDHHmmss'}}
