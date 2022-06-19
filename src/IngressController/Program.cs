@@ -7,7 +7,7 @@ namespace NetCorePal.IngressController
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddKubernetesReverseProxy(builder.Configuration);
-
+            builder.Services.AddHealthChecks();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,7 +25,7 @@ namespace NetCorePal.IngressController
 
             app.UseAuthorization();
 
-
+            app.MapHealthChecks("/healthz");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapReverseProxy();
