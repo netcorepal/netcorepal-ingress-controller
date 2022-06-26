@@ -6,9 +6,15 @@ namespace NetCorePal.IngressController
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddKubernetesReverseProxy(builder.Configuration);
+
+            builder.Services.AddNetCorePalServiceDiscoveryClient();
+
+            builder.Services.AddKubernetesReverseProxy(builder.Configuration).LoadFromNetCorePalServiceDiscoveryClient();
             builder.Services.AddHealthChecks();
+            
             var app = builder.Build();
+
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
