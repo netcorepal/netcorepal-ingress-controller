@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "netcorepal-ingress-controller.fullname" . }}
+  labels:
+    {{- include "netcorepal-ingress-controller.labels" . | nindent 4 }}
+data:
+  yarp.json: |
+    {
+      "Yarp": {
+        "ControllerClass": "netcorepal.com/{{ .Values.yarp.controllerClass | default .Release.Name }}",
+        "ServerCertificates": {{ .Values.yarp.serverCertificates }},
+        "DefaultSslCertificate": "{{ .Values.yarp.defaultSslCertificateSecretName | default .Release.Namespace }}/{{ .Values.yarp.defaultSslCertificateSecretName}}",
+        "ControllerServiceNamespace": "{{ .Release.Namespace }}",
+        "ControllerServiceName": "{{ include "netcorepal-ingress-controller.fullname" . }}"
+      }
+    }

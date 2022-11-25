@@ -1,25 +1,13 @@
-# NetCorePal.IngressController
+# NetCorePal Ingress Controller
 
-基于 [Yarp.ReverseProxy](https://github.com/microsoft/reverse-proxy) 打造的`Kubernetes Ingress Controller`，本项目以打造灵活的自己定义`Ingress Controller`工程模板为目标，以满足不同的系统场景。
+NetCorePal Ingress Controller Project based on YARP.  
 
-## 安装使用
+More info: <https://github.com/microsoft/reverse-proxy>
 
-```
+## Build & Deploy
 
-# 下载代码
-git clone https://github.com/netcorepal/netcorepal-ingress-controller.git
+```shell
+docker build -f src/NetCorePal.IngressController/Dockerfile -t netcorepal:latest .
 
-cd netcorepal-ingress-controller
-
-
-# 创建命名空间
-kubectl create namespace yarp
-
-
-# 创建ingress controller
-kubectl apply -f .\ingress-controller.yaml -n yarp
-
-
-# 卸载
-kubectl delete -f .\ingress-controller.yaml -n yarp
+helm upgrade netcorepal ./helm-chart --install -f values.yaml
 ```
