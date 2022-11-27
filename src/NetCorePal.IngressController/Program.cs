@@ -17,6 +17,7 @@ app.UseMetricServer(url: "/metrics");
 app.UseYarpProxyStateUIStaticFiles();
 
 app.UseRouting();
+app.UseHttpMetrics();
 app.UseYarpProxyStateUI(); // YARP Proxy State UI  http://yourip/_state
 app.MapReverseProxy();
 
