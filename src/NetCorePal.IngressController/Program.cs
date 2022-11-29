@@ -2,7 +2,7 @@ using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("/app/config/yarp.json", optional: true);
+builder.Configuration.AddJsonFile("/app/config/yarp.json", optional: true, reloadOnChange: true);
 
 var netcorepalConfig = builder.Configuration.GetSection("NetCorePal");
 var useMetricServer = netcorepalConfig.GetValue<bool>("UseMetricServer", false);
