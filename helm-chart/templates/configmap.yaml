@@ -15,8 +15,8 @@ data:
         "ControllerServiceName": "{{ include "netcorepal-ingress-controller.fullname" . }}"
       },
       "NetCorePal": {
-        "UseMetricServer": {{ Values.netcorepal.useMetricServer | default false }},
-        "UseHttpMetrics": {{ Values.netcorepal.useHttpMetrics | default false }},
-        "UseYarpProxyStateUI": {{ Values.netcorepal.useYarpProxyStateUI | default false }}
+        "UseMetricServer": {{ .Values.netcorepal.useMetricServer | default false }},
+        "UseHttpMetrics": {{ .Values.netcorepal.useHttpMetrics | default false }},
+        "UseYarpProxyStateUI": {{ .Values.netcorepal.useYarpProxyStateUI | default false }}
       }
     }
