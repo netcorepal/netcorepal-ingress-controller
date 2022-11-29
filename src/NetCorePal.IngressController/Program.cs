@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("/app/config/yarp.json", optional: true);
 
-var netcorepalConfig = builder.Configuration.GetSection("netcorepal");
+var netcorepalConfig = builder.Configuration.GetSection("NetCorePal");
 var useMetricServer = netcorepalConfig.GetValue<bool>("UseMetricServer", false);
 var useHttpMetrics = netcorepalConfig.GetValue<bool>("UseHttpMetrics", false);
 var useYarpProxyStateUI = netcorepalConfig.GetValue<bool>("UseYarpProxyStateUI", false);
@@ -19,10 +19,7 @@ builder.Services.AddYarpProxyStateUI();
 var app = builder.Build();
 
 app.UseHealthChecks(path: "/healthz");
-if (useMetricServer || useHttpMetrics)
-{
-    app.UseMetricServer(url: "/metrics");
-}
+
 if (useYarpProxyStateUI)
 {
     app.UseYarpProxyStateUIStaticFiles();
@@ -31,6 +28,13 @@ app.UseRouting();
 if (useHttpMetrics)
 {
     app.UseHttpMetrics();
+}
+if (useMetricServer || useHttpMetrics)
+{
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapMetrics(pattern: "/metrics");
+    });
 }
 if (useYarpProxyStateUI)
 {
