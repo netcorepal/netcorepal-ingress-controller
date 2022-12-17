@@ -4,7 +4,7 @@ NetCorePal Ingress Controller Project based on YARP.
 
 More info: <https://github.com/microsoft/reverse-proxy>
 
-## install
+## Install
 
 ```shell
 helm repo add netcorepal https://netcorepal.github.io/helm-charts/
