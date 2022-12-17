@@ -39,7 +39,7 @@ jobs:
           latest
           type=ref,event=branch
           type=ref,event=tag
-          type=ref,pattern={{date 'YYYYMMDDHHmmss'}}
+          type=schedule,pattern={{date 'YYYYMMDDHHmmss'}}
           type=ref,event=pr
     - name: Build and push Docker images
       # You may pin to the exact commit or the version.
