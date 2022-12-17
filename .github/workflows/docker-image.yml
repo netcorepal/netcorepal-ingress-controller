@@ -51,3 +51,4 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         file: src/NetCorePal.IngressController/Dockerfile
+        platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
