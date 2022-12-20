@@ -12,6 +12,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="NetCorePal.Extensions.YarpProxyStateUI" Version="0.1.0-preview.1.2211221311" />
     <PackageReference Include="prometheus-net.AspNetCore" Version="7.0.0" />
-    <PackageReference Include="Yarp.Kubernetes.Controller" Version="2.0.0-preview.1.22613.1" />
+    <PackageReference Include="Yarp.Kubernetes.Controller" Version="2.0.0-preview.1.2212200425" />
   </ItemGroup>
 </Project>

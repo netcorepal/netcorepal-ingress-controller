@@ -31,10 +31,7 @@ if (useHttpMetrics)
 }
 if (useMetricServer || useHttpMetrics)
 {
-    app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapMetrics(pattern: "/metrics");
-    });
+    app.MapMetrics(pattern: "/metrics");
 }
 if (useYarpProxyStateUI)
 {
