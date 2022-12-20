@@ -2,11 +2,11 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master,preview ]
     tags:
       - 1.*
   pull_request:
-    branches: [ master ]
+    branches: [ master,preview ]
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
